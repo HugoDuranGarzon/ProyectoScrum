@@ -44,24 +44,24 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         txtNuevoMatricula = new javax.swing.JTextField();
         txtNuevoMes = new javax.swing.JButton();
         txtNuevoAnio = new javax.swing.JButton();
-        jDialog1 = new javax.swing.JDialog();
-        txtNuevoNombre1 = new javax.swing.JTextField();
+        dialogoBtnModificar = new javax.swing.JDialog();
+        txtModNombre1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtNuevoApellidos1 = new javax.swing.JTextField();
+        txtModApellidos1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtNuevoDia1 = new javax.swing.JTextField();
+        txtModDia1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtNuevoSueldo1 = new javax.swing.JTextField();
+        txtModSueldo1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtNuevoMatricula1 = new javax.swing.JTextField();
+        txtModMatricula1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtNuevoMes1 = new javax.swing.JButton();
+        txtModMes1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        txtNuevoAnio1 = new javax.swing.JButton();
+        txtModAnio1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        btnModificarAceptar1 = new javax.swing.JButton();
-        btnNuevoCancelar1 = new javax.swing.JButton();
-        txtNuevoDni1 = new javax.swing.JTextField();
+        btnModAceptar = new javax.swing.JButton();
+        btnModCancelar = new javax.swing.JButton();
+        txtModDni1 = new javax.swing.JTextField();
         jDialog2 = new javax.swing.JDialog();
         txtNuevoNombre2 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -114,6 +114,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         });
 
         btnNuevoCancelar.setText("Cancelar");
+        btnNuevoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dialogoBtnNuevoLayout = new javax.swing.GroupLayout(dialogoBtnNuevo.getContentPane());
         dialogoBtnNuevo.getContentPane().setLayout(dialogoBtnNuevoLayout);
@@ -205,88 +210,95 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         jLabel16.setText("Matrícula:");
 
-        btnModificarAceptar1.setText("Aceptar");
-        btnModificarAceptar1.addActionListener(new java.awt.event.ActionListener() {
+        btnModAceptar.setText("Aceptar");
+        btnModAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarAceptar1ActionPerformed(evt);
+                btnModAceptarActionPerformed(evt);
             }
         });
 
-        btnNuevoCancelar1.setText("Cancelar");
+        btnModCancelar.setText("Cancelar");
+        btnModCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModCancelarActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        txtModDni1.setEditable(false);
+
+        javax.swing.GroupLayout dialogoBtnModificarLayout = new javax.swing.GroupLayout(dialogoBtnModificar.getContentPane());
+        dialogoBtnModificar.getContentPane().setLayout(dialogoBtnModificarLayout);
+        dialogoBtnModificarLayout.setHorizontalGroup(
+            dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel10)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
+                        .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
                         .addGap(34, 34, 34)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNuevoSueldo1)
-                            .addComponent(txtNuevoApellidos1)
-                            .addComponent(txtNuevoNombre1)
-                            .addComponent(txtNuevoDni1)))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtModSueldo1)
+                            .addComponent(txtModApellidos1)
+                            .addComponent(txtModNombre1)
+                            .addComponent(txtModDni1)))
+                    .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
+                        .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnModificarAceptar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnModAceptar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel16)))
                         .addGap(18, 18, 18)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNuevoCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDialog1Layout.createSequentialGroup()
-                                .addComponent(txtNuevoDia1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnModCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
+                                .addComponent(txtModDia1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNuevoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtModMes1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNuevoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNuevoMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtModAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtModMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        dialogoBtnModificarLayout.setVerticalGroup(
+            dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel10)
                 .addGap(22, 22, 22)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNuevoDni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModDni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtNuevoNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNuevoApellidos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModApellidos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNuevoSueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModSueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtNuevoDia1)
-                    .addComponent(txtNuevoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNuevoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModDia1)
+                    .addComponent(txtModMes1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNuevoMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarAceptar1)
-                    .addComponent(btnNuevoCancelar1)))
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModAceptar)
+                    .addComponent(btnModCancelar)))
         );
 
         jLabel17.setText("Modificar trabajador");
@@ -432,6 +444,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         });
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnFiltrar.setText("Filtrar");
 
@@ -515,20 +532,38 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
+        dialogoBtnNuevo.setSize(300,400);
+        dialogoBtnNuevo.setModal(true);
+        dialogoBtnNuevo.setVisible(true);
+        mostrarTrabajadores();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnNuevoAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAceptarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnNuevoAceptarActionPerformed
 
-    private void btnModificarAceptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAceptar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModificarAceptar1ActionPerformed
+    private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
+        
+    }//GEN-LAST:event_btnModAceptarActionPerformed
 
     private void btnModificarAceptar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAceptar2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnModificarAceptar2ActionPerformed
+
+    private void btnModCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCancelarActionPerformed
+        dialogoBtnModificar.dispose();
+    }//GEN-LAST:event_btnModCancelarActionPerformed
+
+    private void btnNuevoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoCancelarActionPerformed
+        dialogoBtnNuevo.dispose();
+    }//GEN-LAST:event_btnNuevoCancelarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        dialogoBtnModificar.setSize(300,400);
+        dialogoBtnModificar.setModal(true);
+        dialogoBtnModificar.setVisible(true);
+        mostrarTrabajadores();
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -568,16 +603,16 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFiltrar;
+    private javax.swing.JButton btnModAceptar;
+    private javax.swing.JButton btnModCancelar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnModificarAceptar1;
     private javax.swing.JButton btnModificarAceptar2;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoAceptar;
     private javax.swing.JButton btnNuevoCancelar;
-    private javax.swing.JButton btnNuevoCancelar1;
     private javax.swing.JButton btnNuevoCancelar2;
+    private javax.swing.JDialog dialogoBtnModificar;
     private javax.swing.JDialog dialogoBtnNuevo;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -607,29 +642,29 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JTextField media;
     private javax.swing.JTextField ntrab;
     private javax.swing.JTable tabla;
+    private javax.swing.JButton txtModAnio1;
+    private javax.swing.JTextField txtModApellidos1;
+    private javax.swing.JTextField txtModDia1;
+    private javax.swing.JTextField txtModDni1;
+    private javax.swing.JTextField txtModMatricula1;
+    private javax.swing.JButton txtModMes1;
+    private javax.swing.JTextField txtModNombre1;
+    private javax.swing.JTextField txtModSueldo1;
     private javax.swing.JButton txtNuevoAnio;
-    private javax.swing.JButton txtNuevoAnio1;
     private javax.swing.JButton txtNuevoAnio2;
     private javax.swing.JTextField txtNuevoApellidos;
-    private javax.swing.JTextField txtNuevoApellidos1;
     private javax.swing.JTextField txtNuevoApellidos2;
     private javax.swing.JTextField txtNuevoDia;
-    private javax.swing.JTextField txtNuevoDia1;
     private javax.swing.JTextField txtNuevoDia2;
     private javax.swing.JTextField txtNuevoDni;
-    private javax.swing.JTextField txtNuevoDni1;
     private javax.swing.JTextField txtNuevoDni2;
     private javax.swing.JTextField txtNuevoMatricula;
-    private javax.swing.JTextField txtNuevoMatricula1;
     private javax.swing.JTextField txtNuevoMatricula2;
     private javax.swing.JButton txtNuevoMes;
-    private javax.swing.JButton txtNuevoMes1;
     private javax.swing.JButton txtNuevoMes2;
     private javax.swing.JTextField txtNuevoNombre;
-    private javax.swing.JTextField txtNuevoNombre1;
     private javax.swing.JTextField txtNuevoNombre2;
     private javax.swing.JTextField txtNuevoSueldo;
-    private javax.swing.JTextField txtNuevoSueldo1;
     private javax.swing.JTextField txtNuevoSueldo2;
     // End of variables declaration//GEN-END:variables
 }
