@@ -78,11 +78,13 @@
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txtNuevoDia" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNuevoMes" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNuevoAnio" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -166,7 +168,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="jDialog1">
+    <Container class="javax.swing.JDialog" name="dialogoBtnModificar">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -184,31 +186,31 @@
                           </Group>
                           <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNuevoSueldo1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoApellidos1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoNombre1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoDni1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtModSueldo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtModApellidos" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtModNombre" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtModDni" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="btnModificarAceptar1" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="btnModAceptar" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnNuevoCancelar1" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="btnModCancelar" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtNuevoDia1" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="txtModDia" min="-2" pref="33" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtNuevoMes1" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="txtModMes" min="-2" pref="32" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtNuevoAnio1" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="txtModAnio" min="-2" pref="51" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtNuevoMatricula1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                              <Component id="txtModMatricula1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -223,109 +225,112 @@
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoDni1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModDni" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNuevoNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoApellidos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoSueldo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModSueldo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNuevoDia1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtNuevoMes1" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="txtNuevoAnio1" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtModDia" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtModMes" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="txtModAnio" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoMatricula1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModMatricula1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnModificarAceptar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnNuevoCancelar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnModAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnModCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtNuevoNombre1">
+        <Component class="javax.swing.JTextField" name="txtModNombre">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar trabajador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoApellidos1">
+        <Component class="javax.swing.JTextField" name="txtModApellidos">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="text" type="java.lang.String" value="DNI:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoDia1">
+        <Component class="javax.swing.JTextField" name="txtModDia">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoSueldo1">
+        <Component class="javax.swing.JTextField" name="txtModSueldo">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apellidos:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoMatricula1">
+        <Component class="javax.swing.JTextField" name="txtModMatricula1">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sueldo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtNuevoMes1">
+        <Component class="javax.swing.JButton" name="txtModMes">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtNuevoAnio1">
+        <Component class="javax.swing.JButton" name="txtModAnio">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
             <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnModificarAceptar1">
+        <Component class="javax.swing.JButton" name="btnModAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarAceptar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModAceptarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnNuevoCancelar1">
+        <Component class="javax.swing.JButton" name="btnModCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoDni1">
+        <Component class="javax.swing.JTextField" name="txtModDni">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -336,46 +341,65 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNuevoSueldo2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoApellidos2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoNombre2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNuevoDni2" alignment="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtFiltrarNombre" alignment="0" pref="153" max="32767" attributes="0"/>
+                              <Component id="txtFiltrarApellidos" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtFiltrarDni" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="btnModificarAceptar2" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="comboSueldo" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="btnFiltrarAceptar" min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Component id="comboFecha" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnNuevoCancelar2" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtNuevoDia2" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtNuevoMes2" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtNuevoAnio2" min="-2" pref="51" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="btnFiltrarCancelar" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtNuevoMatricula2" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtFiltrarSueldo" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="txtFiltrarDia" min="-2" pref="33" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtFiltrarMes" min="-2" pref="32" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtFiltrarAnio" min="-2" pref="51" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="txtFiltrarMatricula" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -386,109 +410,154 @@
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoDni2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFiltrarDni" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNuevoNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFiltrarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoApellidos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFiltrarApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoSueldo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFiltrarSueldo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboSueldo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNuevoDia2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtNuevoMes2" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="txtNuevoAnio2" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtFiltrarMes" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtFiltrarAnio" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="txtFiltrarDia" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNuevoMatricula2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFiltrarMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnModificarAceptar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnNuevoCancelar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnFiltrarAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnFiltrarCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtNuevoNombre2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarNombre">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar trabajador"/>
+            <Property name="text" type="java.lang.String" value="Filtrado de trabajadores"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoApellidos2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarApellidos">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
             <Property name="text" type="java.lang.String" value="DNI:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoDia2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarDia">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoSueldo2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarSueldo">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFiltrarSueldoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apellidos:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoMatricula2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarMatricula">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sueldo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtNuevoMes2">
+        <Component class="javax.swing.JButton" name="txtFiltrarMes">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtNuevoAnio2">
+        <Component class="javax.swing.JButton" name="txtFiltrarAnio">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFiltrarAnioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel23">
           <Properties>
             <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnModificarAceptar2">
+        <Component class="javax.swing.JButton" name="btnFiltrarAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarAceptar2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFiltrarAceptarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnNuevoCancelar2">
+        <Component class="javax.swing.JButton" name="btnFiltrarCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNuevoDni2">
+        <Component class="javax.swing.JTextField" name="txtFiltrarDni">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboSueldo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="&gt;"/>
+                <StringItem index="1" value="&lt;"/>
+                <StringItem index="2" value="="/>
+                <StringItem index="3" value="&gt;="/>
+                <StringItem index="4" value="&lt;="/>
+                <StringItem index="5" value="&lt;&gt;"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboFecha">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="&gt;"/>
+                <StringItem index="1" value="&lt;"/>
+                <StringItem index="2" value="="/>
+                <StringItem index="3" value="&gt;="/>
+                <StringItem index="4" value="&lt;="/>
+                <StringItem index="5" value="&lt;&gt;"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -618,9 +687,6 @@
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Acciones"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">
