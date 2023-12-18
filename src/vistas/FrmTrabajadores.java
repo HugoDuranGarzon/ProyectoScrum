@@ -82,6 +82,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         txtFiltrarDni = new javax.swing.JTextField();
         comboSueldo = new javax.swing.JComboBox<>();
         comboFecha = new javax.swing.JComboBox<>();
+        panelOrdenacion = new javax.swing.JPanel();
+        cboCamposOrdenacion = new javax.swing.JComboBox<>();
+        radioAsc = new javax.swing.JRadioButton();
+        radioDesc = new javax.swing.JRadioButton();
+        btnFiltrarVerTodos = new javax.swing.JButton();
+        grupoBtnOrdenacion = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -338,13 +344,58 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         comboFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ">", "<", "=", ">=", "<=", "<>" }));
 
+        panelOrdenacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Ordenación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 204))); // NOI18N
+
+        cboCamposOrdenacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Sin ordenacion)", "DNI", "Nombre", "Apellidos", "Sueldo", "Fecha", "Matricula" }));
+
+        grupoBtnOrdenacion.add(radioAsc);
+        radioAsc.setText("ASC");
+
+        grupoBtnOrdenacion.add(radioDesc);
+        radioDesc.setText("DESC");
+
+        javax.swing.GroupLayout panelOrdenacionLayout = new javax.swing.GroupLayout(panelOrdenacion);
+        panelOrdenacion.setLayout(panelOrdenacionLayout);
+        panelOrdenacionLayout.setHorizontalGroup(
+            panelOrdenacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOrdenacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cboCamposOrdenacion, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelOrdenacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radioAsc, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        panelOrdenacionLayout.setVerticalGroup(
+            panelOrdenacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOrdenacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOrdenacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cboCamposOrdenacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioAsc))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelOrdenacionLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(radioDesc)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnFiltrarVerTodos.setText("Ver Todos");
+
         javax.swing.GroupLayout dialogoBtnFiltrarLayout = new javax.swing.GroupLayout(dialogoBtnFiltrar.getContentPane());
         dialogoBtnFiltrar.getContentPane().setLayout(dialogoBtnFiltrarLayout);
         dialogoBtnFiltrarLayout.setHorizontalGroup(
             dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
+                        .addComponent(btnFiltrarAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFiltrarVerTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFiltrarCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelOrdenacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel17)
                     .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                         .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,19 +412,13 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                             .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboSueldo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(comboSueldo, 0, 47, Short.MAX_VALUE))
                             .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogoBtnFiltrarLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(btnFiltrarAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addGap(11, 11, 11)
                                 .addComponent(comboFecha, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(btnFiltrarCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -387,7 +432,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(txtFiltrarMatricula)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         dialogoBtnFiltrarLayout.setVerticalGroup(
             dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,11 +468,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFiltrarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelOrdenacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFiltrarAceptar)
-                    .addComponent(btnFiltrarCancelar))
-                .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(btnFiltrarCancelar)
+                    .addComponent(btnFiltrarVerTodos))
+                .addGap(10, 10, 10))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -641,17 +689,20 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnFiltrarAceptar;
     private javax.swing.JButton btnFiltrarCancelar;
+    private javax.swing.JButton btnFiltrarVerTodos;
     private javax.swing.JButton btnModAceptar;
     private javax.swing.JButton btnModCancelar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoAceptar;
     private javax.swing.JButton btnNuevoCancelar;
+    private javax.swing.JComboBox<String> cboCamposOrdenacion;
     private javax.swing.JComboBox<String> comboFecha;
     private javax.swing.JComboBox<String> comboSueldo;
     private javax.swing.JDialog dialogoBtnFiltrar;
     private javax.swing.JDialog dialogoBtnModificar;
     private javax.swing.JDialog dialogoBtnNuevo;
+    private javax.swing.ButtonGroup grupoBtnOrdenacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -679,6 +730,9 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField media;
     private javax.swing.JTextField ntrab;
+    private javax.swing.JPanel panelOrdenacion;
+    private javax.swing.JRadioButton radioAsc;
+    private javax.swing.JRadioButton radioDesc;
     private javax.swing.JTable tabla;
     private javax.swing.JButton txtFiltrarAnio;
     private javax.swing.JTextField txtFiltrarApellidos;
