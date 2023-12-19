@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package conexion;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,6 +13,8 @@ import java.sql.Statement;
  * @author Administrador
  */
 public class DBConection {
+    
+    	private Connection conexion;
 
     public DBConection() {
         Connection conexion = null;
@@ -22,14 +25,14 @@ public class DBConection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establecer la conexión
-            String url = "jdbc:mysql://localhost/";
+            String url = "jdbc:mysql://localhost/bdtrabajadores";
             conexion = DriverManager.getConnection(url, "root", "");
 
             // Crear un objeto Statement
             statement = conexion.createStatement();
 
             // Ejecutar el script SQL
-            String script = "CREATE DATABASE bdtrabajadores;" +
+            /*String script = "CREATE DATABASE bdtrabajadores;" +
                             "USE bdtrabajadores;" +
                             "CREATE TABLE trabajadores (" +
                             "dni VARCHAR(9) PRIMARY KEY," +
@@ -50,9 +53,10 @@ public class DBConection {
                             "('99999999I','Jorge','Cerrato Marin','5000.50','9-9-2009','9999-III'),"+
                             "('10101010J','Rodrigo','Jimenez Jimenez','4550.20','10-10-2010','1010-JJJ')";
             statement.execute(script);
-
+            
             System.out.println("Script SQL ejecutado exitosamente");
-
+            */
+            System.out.println("yyyyy");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
@@ -69,4 +73,7 @@ public class DBConection {
             }
         }
     }
+    	public Connection getConexion() {
+		return conexion;
+	}
 }

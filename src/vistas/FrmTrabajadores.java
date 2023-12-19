@@ -4,6 +4,12 @@
  */
 package vistas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import conexion.DBConection;
+import entidades.Trabajador;
+
 /**
  *
  * @author Administrador
@@ -614,7 +620,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_ntrabActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed

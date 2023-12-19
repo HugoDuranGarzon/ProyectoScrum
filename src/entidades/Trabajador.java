@@ -30,6 +30,10 @@ public class Trabajador {
         this.matricula = matricula;
     }
 
+    public Trabajador() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Getters y setters
 
     public String getDni() {

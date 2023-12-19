@@ -4,6 +4,9 @@
  */
 package crudtrabajadores;
 
+import conexion.DBConection;
+import java.sql.Connection;
+
 /**
  *
  * @author Administrador
@@ -14,6 +17,8 @@ public class CrudTrabajadores {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+                Connection conexion = new DBConection().getConexion();
+                
      
     }
     

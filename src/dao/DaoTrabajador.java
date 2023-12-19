@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+   */  
 package dao;
 import com.mysql.cj.jdbc.ConnectionImpl;
 import conexion.DBConection;
@@ -23,7 +23,7 @@ public class DaoTrabajador {
     //Metodo para añadir un trabajador
     public void addTrabajador(Trabajador t){
         //Conexion
-        //private Connection conexion = new DBConection().getConexion();   Se debe crear la clase de DBConection aún
+        Connection conexion = new DBConection().getConexion();   
         
         try {
             
@@ -57,7 +57,7 @@ public class DaoTrabajador {
     public void borrarTrabajador(Trabajador t){
         
         //Conexion
-        //private Connection conexion = new DBConection().getConexion();   Se debe crear la clase de DBConection aún
+        Connection conexion = new DBConection().getConexion();   
         
         try {
             //Se crea la sentencia
@@ -67,7 +67,7 @@ public class DaoTrabajador {
             PreparedStatement plataforma = conexion.prepareStatement(sql);
             
             //Se rellena el campo de la sentencia
-            plataforma.setString(1, t.getDni);
+            plataforma.setString(1, t.getDni());
             
             //Se ejecuta la sentencia
             plataforma.executeUpdate();
@@ -84,7 +84,7 @@ public class DaoTrabajador {
     //Metodo para actualizar el registro de un trabajador en la DB
     public void updateTrabajador(Trabajador t){
         //Conexion
-        //private Connection conexion = new DBConection().getConexion();   Se debe crear la clase de DBConection aún
+        Connection conexion = new DBConection().getConexion(); 
         
         try {
             //Se crea la sentencia
@@ -102,7 +102,7 @@ public class DaoTrabajador {
     }
     public void filtrarTrabajador(Trabajador t){
         //Conexion
-        //private Connection conexion = new DBConection().getConexion();   Se debe crear la clase de DBConection aún
+        Connection conexion = new DBConection().getConexion();
         
         try {
             //Se crea la sentencia
@@ -118,5 +118,6 @@ public class DaoTrabajador {
         
         
     }    
-    
+
 }
+ 
