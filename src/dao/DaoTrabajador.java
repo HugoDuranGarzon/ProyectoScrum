@@ -101,7 +101,9 @@ public class DaoTrabajador {
         
         
     }
-    public void filtrarTrabajador(Trabajador t){
+    
+     //Este metodo esta mal, ya hay otro que hace lo mismo.
+     /* public void filtrarTrabajador(Trabajador t){
         //Conexion
         Connection conexion = new DBConection().getConexion();
         
@@ -118,7 +120,7 @@ public class DaoTrabajador {
         }
         
         
-    }    
+    } */   
     
     	public ArrayList<Trabajador> get(){
 		//Preparo un arraylist para el resultado
