@@ -58,7 +58,6 @@ public class DBConection {
             */
             System.out.println("yyyyy");
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
         } finally {
             // Cerrar la conexión y el statement
             try {
@@ -75,5 +74,6 @@ public class DBConection {
     }
     	public Connection getConexion() {
 		return conexion;
+                //devolver 
 	}
 }

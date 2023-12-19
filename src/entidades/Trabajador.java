@@ -29,7 +29,10 @@ public class Trabajador {
         this.fecha = fecha;
         this.matricula = matricula;
     }
-
+    
+    public Trabajador(String dni) {
+        this.dni = dni;
+    }
     public Trabajador() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

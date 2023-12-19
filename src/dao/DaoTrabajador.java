@@ -145,6 +145,7 @@ public class DaoTrabajador {
 			e.printStackTrace();
 		}
 		return lista;
+                //devuelve lista
 	}
 
 }
