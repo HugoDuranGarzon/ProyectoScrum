@@ -100,6 +100,23 @@ public class DaoTrabajador {
         
         
     }
-    
+    public void filtrarTrabajador(Trabajador t){
+        //Conexion
+        //private Connection conexion = new DBConection().getConexion();   Se debe crear la clase de DBConection aún
+        
+        try {
+            //Se crea la sentencia
+            String sql = "UPDATE trabajador SET nombre = ? , apellidos = ?, sueldo = ? , fecha = ?, matricula = ? WHERE dni = ?";
+            
+            
+            
+            
+        } catch (Exception e) {
+            System.out.println("Se ha producido un error al actualizar el trabajador");
+            e.printStackTrace();
+        }
+        
+        
+    }    
     
 }
