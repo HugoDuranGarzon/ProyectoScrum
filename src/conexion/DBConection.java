@@ -14,7 +14,7 @@ import java.sql.Statement;
 public class DBConection {
 
     public DBConection() {
-        Connection connection = null;
+        Connection conexion = null;
         Statement statement = null;
 
         try {
@@ -23,10 +23,10 @@ public class DBConection {
 
             // Establecer la conexión
             String url = "jdbc:mysql://localhost/";
-            connection = DriverManager.getConnection(url, "root", "");
+            conexion = DriverManager.getConnection(url, "root", "");
 
             // Crear un objeto Statement
-            statement = connection.createStatement();
+            statement = conexion.createStatement();
 
             // Ejecutar el script SQL
             String script = "CREATE DATABASE bdtrabajadores;" +
@@ -61,8 +61,8 @@ public class DBConection {
                 if (statement != null) {
                     statement.close();
                 }
-                if (connection != null) {
-                    connection.close();
+                if (conexion != null) {
+                    conexion.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

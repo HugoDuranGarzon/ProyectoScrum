@@ -187,8 +187,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                     .addComponent(txtNuevoDia)
                     .addComponent(txtNuevoMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNuevoAnio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(dialogoBtnNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)))
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(dialogoBtnNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNuevoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,6 +504,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         jLabel1.setText("Sueldo medio:");
 
         media.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        media.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediaActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
 
@@ -572,7 +576,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 .addComponent(media, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -648,6 +652,10 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private void btnFiltrarCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarCancelarActionPerformed
         dialogoBtnFiltrar.dispose();
     }//GEN-LAST:event_btnFiltrarCancelarActionPerformed
+
+    private void mediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mediaActionPerformed
 
     /**
      * @param args the command line arguments
