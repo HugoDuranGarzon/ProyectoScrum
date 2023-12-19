@@ -761,6 +761,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
        fila.add (trabajador.getNombre());
        fila.add (trabajador.getApellidos());
        fila.add (trabajador.getSueldo());
+       fila.add (trabajador.getFecha());
        fila.add (trabajador.getMatricula());
 
        modelo.addRow(fila.toArray());
