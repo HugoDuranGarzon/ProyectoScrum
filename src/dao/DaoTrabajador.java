@@ -7,6 +7,7 @@ import com.mysql.cj.jdbc.ConnectionImpl;
 import conexion.DBConection;
 import java.sql.*;
 import entidades.Trabajador;
+import java.util.ArrayList;
 /**
  *
  * @author Administrador
@@ -118,6 +119,33 @@ public class DaoTrabajador {
         
         
     }    
+    
+    	public ArrayList<Trabajador> get(){
+		//Preparo un arraylist para el resultado
+		ArrayList<Trabajador> lista = new ArrayList<Trabajador>();
+		//pedir la conexión
+		Connection conexion = new DBConection().getConexion();
+
+		try {
+			//Lanzar un SELECT
+			String sql = "SELECT * FROM trabajadores";
+			//Uso una plataforma "Preparada"
+			PreparedStatement plataforma = conexion.prepareStatement(sql);
+			ResultSet resultado = plataforma.executeQuery();
+
+			while(resultado.next()) { //cuando se acaben las tuplas, next() retorna false
+				//tratamiento de cada tupla
+				lista.add(new Trabajador(resultado.getString("dni"), resultado.getString("nombre"),resultado.getString("apellidos"), resultado.getDouble("sueldo"),resultado.getString("fecha"),resultado.getString("matricula")));
+				//	lista.add(new Persona(resultado.getString(1), resultado.getString(2), resultado.getLong(3)));
+
+			}
+			conexion.close();
+		} catch (SQLException e) {
+			System.out.println("Error obteniendo personas");
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 }
  
