@@ -43,7 +43,7 @@ public class DBConection {
                             "('22222222B','Pedro','Villaverde Cristobal','3000.50','2-2-2002','2222-BBB'),"+
                             "('33333333C','Ruben','Garcia Galan','2700.80','3-3-2003','3333-CCC'),"+
                             "('44444444D','Hugo','Duran Garzon','4000.50','4-4-2004','4444-DDD'),"+
-                            "('55555555E','Sofiane','Hminat','3100.30','5-5-2005','5555-EEE')"+
+                            "('55555555E','Sofiane','Hminat','3100.30','5-5-2005','5555-EEE'),"+
                             "('66666666F','Sergio','Gonzalez Alcantara','2700.50','6-6-2006','6666-FFF'),"+
                             "('77777777G','Rodrigo','Casarrubios Fernandez','900.20','7-7-2007','7777-GGG'),"+
                             "('88888888H','Alvaro','Villares Rordriguez','5000.50','8-8-2008','8888-HHH'),"+
