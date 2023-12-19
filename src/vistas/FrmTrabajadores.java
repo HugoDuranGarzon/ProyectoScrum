@@ -21,6 +21,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
      */
     public FrmTrabajadores() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
