@@ -60,19 +60,19 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtModApellidos = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtModDia = new javax.swing.JTextField();
+        txtModMes = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtModSueldo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtModMatricula = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtModMes = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        txtModAnio = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         btnModAceptar = new javax.swing.JButton();
         btnModCancelar = new javax.swing.JButton();
         txtModDni = new javax.swing.JTextField();
+        txtModAnio = new javax.swing.JTextField();
+        txtModDia = new javax.swing.JTextField();
         dialogoBtnFiltrar = new javax.swing.JDialog();
         txtFiltrarNombre = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -268,13 +268,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnModCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
-                                .addComponent(txtModDia, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtModMes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtModAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(dialogoBtnModificarLayout.createSequentialGroup()
+                                    .addComponent(txtModDia, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(txtModMes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtModAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         dialogoBtnModificarLayout.setVerticalGroup(
@@ -299,12 +300,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                     .addComponent(txtModSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
-                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtModDia)
-                    .addComponent(txtModMes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtModAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(18, 18, 18)
+                .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtModMes)
+                    .addComponent(txtModAnio)
+                    .addComponent(txtModDia))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(dialogoBtnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
@@ -835,12 +836,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JTextField txtFiltrarMes;
     private javax.swing.JTextField txtFiltrarNombre;
     private javax.swing.JTextField txtFiltrarSueldo;
-    private javax.swing.JButton txtModAnio;
+    private javax.swing.JTextField txtModAnio;
     private javax.swing.JTextField txtModApellidos;
     private javax.swing.JTextField txtModDia;
     private javax.swing.JTextField txtModDni;
     private javax.swing.JTextField txtModMatricula;
-    private javax.swing.JButton txtModMes;
+    private javax.swing.JTextField txtModMes;
     private javax.swing.JTextField txtModNombre;
     private javax.swing.JTextField txtModSueldo;
     private javax.swing.JTextField txtNuevoAnio;
