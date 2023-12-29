@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
    */  
 package dao;
-import com.mysql.cj.jdbc.ConnectionImpl;
 import conexion.DBConection;
 import java.sql.*;
 import entidades.Trabajador;

@@ -503,6 +503,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         jLabel2.setText("Nº de trabajadores:");
 
+        ntrab.setEditable(false);
+        ntrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ntrab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ntrab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -761,6 +763,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
        }
 
        tabla.setModel(modelo);
+       int nRegistros = listado.size();
+       ntrab.setText(""+nRegistros);
         
     }
 
