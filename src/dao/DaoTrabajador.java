@@ -54,20 +54,17 @@ public class DaoTrabajador {
     }
     
     //Metodo para borrar un trabajador
-    public void borrarTrabajador(Trabajador t){
+    public void borrarTrabajador(Object dni){
         
         //Conexion
         Connection conexion = new DBConection().getConexion();   
-        
+        String S_dni = dni.toString();
         try {
             //Se crea la sentencia
-            String sql ="DELETE FROM trabajadores WHERE dni = ?";
+            String sql ="DELETE FROM trabajadores WHERE dni = '"+S_dni+"' ";
             
             //Se crea la plataforma preparada
             PreparedStatement plataforma = conexion.prepareStatement(sql);
-            
-            //Se rellena el campo de la sentencia
-            plataforma.setString(1, t.getDni());
             
             //Se ejecuta la sentencia
             plataforma.executeUpdate();

@@ -27,6 +27,10 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         listar();
     }
+    
+    // Creo un instancia de DaoTrabajador para poder usar sus metodos no estaticos
+    DaoTrabajador d = new DaoTrabajador();
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -499,6 +503,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         jLabel2.setText("Nº de trabajadores:");
@@ -637,7 +646,9 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        
+        int filaSeleccionada = tabla.getSelectedRow();
+        Object dni = tabla.getValueAt(filaSeleccionada,0);
+        d.borrarTrabajador(dni);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -696,6 +707,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         listar();
         
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tablaMouseClicked
 
     /**
      * @param args the command line arguments
