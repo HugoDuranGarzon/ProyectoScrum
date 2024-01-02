@@ -139,6 +139,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         btnNuevoCancelar.setText("Cancelar");
 
+        txtNuevoAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNuevoAnioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dialogoBtnNuevoLayout = new javax.swing.GroupLayout(dialogoBtnNuevo.getContentPane());
         dialogoBtnNuevo.getContentPane().setLayout(dialogoBtnNuevoLayout);
         dialogoBtnNuevoLayout.setHorizontalGroup(
@@ -662,7 +668,18 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnNuevoAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAceptarActionPerformed
-        
+
+      
+      String dni = txtNuevoDni.getText();
+      String nombre = txtNuevoNombre.getText();
+      String apellidos =  txtNuevoApellidos.getText();
+      String matricula = txtNuevoMatricula.getText();
+      String fecha = (txtNuevoAnio.getText())+("-")+(txtNuevoMes.getText())+("-")+(txtNuevoDia.getText());   
+      Double sueldo = Double.parseDouble(txtNuevoSueldo.getText());            
+      Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo,fecha,matricula);
+      d.addTrabajador(t);       
+      dialogoBtnNuevo.dispose();
+      listar();
     }//GEN-LAST:event_btnNuevoAceptarActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
@@ -715,6 +732,10 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void txtNuevoAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevoAnioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNuevoAnioActionPerformed
 
     /**
      * @param args the command line arguments

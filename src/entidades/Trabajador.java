@@ -13,12 +13,12 @@ package entidades;
  */
 public class Trabajador {
 
-    private String dni;
-    private String nombre;
-    private String apellidos;
-    private double sueldo;
-    private String fecha;
-    private String matricula;
+    public String dni;
+    public String nombre;
+    public String apellidos;
+    public double sueldo;
+    public String fecha;
+    public String matricula;
 
     // Constructor
     public Trabajador(String dni, String nombre, String apellidos, double sueldo, String fecha, String matricula) {
