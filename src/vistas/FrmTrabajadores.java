@@ -247,6 +247,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         });
 
         btnModCancelar.setText("Cancelar");
+        btnModCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModCancelarActionPerformed(evt);
+            }
+        });
 
         txtModDni.setEditable(false);
 
@@ -687,7 +692,17 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoAceptarActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
-        
+     
+     String dni = txtModDni.getText();
+     String nombre = txtModNombre.getText();
+     String apellidos =  txtModApellidos.getText();
+     String matricula = txtModMatricula.getText();
+     String fecha = (txtModAnio.getText())+("-")+(txtModMes.getText())+("-")+(txtModDia.getText());   
+     Double sueldo = Double.parseDouble(txtModSueldo.getText());            
+     Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo,fecha,matricula);
+     d.updateTrabajador(t);
+     dialogoBtnModificar.dispose();
+     listar();
     }//GEN-LAST:event_btnModAceptarActionPerformed
 
     private void btnFiltrarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarAceptarActionPerformed
@@ -695,14 +710,18 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFiltrarAceptarActionPerformed
 
     private void btnModCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCancelarActionPerformed
-        dialogoBtnModificar.dispose();
+    dialogoBtnModificar.dispose();
     }//GEN-LAST:event_btnModCancelarActionPerformed
 
     private void btnNuevoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoCancelarActionPerformed
-        dialogoBtnNuevo.dispose();
+    dialogoBtnNuevo.dispose();
     }//GEN-LAST:event_btnNuevoCancelarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        int filaSeleccionada = tabla.getSelectedRow();
+        Object dni = tabla.getValueAt(filaSeleccionada,0);
+        String S_dni = dni.toString();
+        txtModDni.setText(S_dni);
         dialogoBtnModificar.setSize(300,400);
         dialogoBtnModificar.setModal(true);
         dialogoBtnModificar.setVisible(true);

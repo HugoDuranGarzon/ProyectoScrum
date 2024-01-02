@@ -88,9 +88,24 @@ public class DaoTrabajador {
         
         try {
             //Se crea la sentencia
-            String sql = "UPDATE trabajador SET nombre = ? , apellidos = ?, sueldo = ? , fecha = ?, matricula = ? WHERE dni = ?";
+            String sql = "UPDATE trabajadores SET nombre = ? , apellidos = ?, sueldo = ? , fecha = ?, matricula = ? WHERE dni = ?";
             
+            //Se crea una plataforma preparada
+            PreparedStatement plataforma = conexion.prepareStatement(sql);
             
+            //Se rellenan los campos de la sentencia preparada
+            
+            plataforma.setString(1,t.getNombre());
+            plataforma.setString(2,t.getApellidos());
+            plataforma.setDouble(3,t.getSueldo());
+            plataforma.setString(4,t.getFecha());
+            plataforma.setString(5,t.getMatricula());
+            plataforma.setString(6,t.getDni());
+            //Se ejecuta la sentencia
+            plataforma.executeUpdate();
+            
+            //Se cierra la conexion
+            conexion.close();
             
             
         } catch (Exception e) {
