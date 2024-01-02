@@ -11,6 +11,8 @@ import conexion.DBConection;
 import dao.DaoTrabajador;
 import entidades.Trabajador;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -529,6 +531,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         jLabel1.setText("Sueldo medio:");
 
+        media.setEditable(false);
+        media.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         media.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         media.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -776,35 +780,41 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     //Se llama a este metodo con el boton Actualizar y en el constructor
     public void listar(){
         
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("DNI");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellidos");
-        modelo.addColumn("Sueldo");
-        modelo.addColumn("Fecha");
-        modelo.addColumn("Matricula");
-        
-
-
-        DaoTrabajador t = new DaoTrabajador();
-
-        ArrayList<Trabajador> listado=t.get();
-
-       for(Trabajador trabajador: listado){
-       ArrayList fila = new ArrayList();
-       fila.add (trabajador.getDni());
-       fila.add (trabajador.getNombre());
-       fila.add (trabajador.getApellidos());
-       fila.add (trabajador.getSueldo());
-       fila.add (trabajador.getFecha());
-       fila.add (trabajador.getMatricula());
-
-       modelo.addRow(fila.toArray());
-       }
-
-       tabla.setModel(modelo);
-       int nRegistros = listado.size();
-       ntrab.setText(""+nRegistros);
+        try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("DNI");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Apellidos");
+            modelo.addColumn("Sueldo");
+            modelo.addColumn("Fecha");
+            modelo.addColumn("Matricula");
+            
+            
+            
+            DaoTrabajador t = new DaoTrabajador();
+            
+            ArrayList<Trabajador> listado=t.get();
+            
+            for(Trabajador trabajador: listado){
+                ArrayList fila = new ArrayList();
+                fila.add (trabajador.getDni());
+                fila.add (trabajador.getNombre());
+                fila.add (trabajador.getApellidos());
+                fila.add (trabajador.getSueldo());
+                fila.add (trabajador.getFecha());
+                fila.add (trabajador.getMatricula());
+                
+                modelo.addRow(fila.toArray());
+            }
+            
+            tabla.setModel(modelo);
+            int nRegistros = listado.size();
+            String SueldoMedio = d.SueldoMedio();
+            ntrab.setText(""+nRegistros);
+            media.setText(SueldoMedio);
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

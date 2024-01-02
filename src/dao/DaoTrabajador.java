@@ -6,7 +6,10 @@ package dao;
 import conexion.DBConection;
 import java.sql.*;
 import entidades.Trabajador;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Administrador
@@ -145,6 +148,39 @@ public class DaoTrabajador {
 		return lista;
                 //devuelve lista
 	}
+        
+        public String SueldoMedio() throws SQLException{
+            String columna="sueldo";
+                // Realizar la conexión y calcular la media
+                Connection conexion = new DBConection().getConexion();
+                // Consulta SQL para obtener todos los valores de la columna
+            String consulta = "SELECT sueldo FROM trabajadores";
+            
+            try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
+                // Ejecutar la consulta
+                ResultSet resultSet = statement.executeQuery();
+
+                // Calcular la media de los valores
+                double suma = 0;
+                int cantidadValores = 0;
+
+                try {
+                    while (resultSet.next()) {
+                        double valor = resultSet.getDouble(columna);
+                        suma += valor;
+                        cantidadValores++;
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(DaoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+
+                    double media = suma / cantidadValores;
+                    DecimalFormat formatoDecimal = new DecimalFormat("#.##");
+                    String fmedia = formatoDecimal.format(media);
+                    return fmedia;
+            }
+        }
 
 }
  
