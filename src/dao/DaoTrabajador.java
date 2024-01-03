@@ -10,12 +10,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Administrador
  */
 public class DaoTrabajador {
-    
     
     
     //Constructor
@@ -27,9 +27,7 @@ public class DaoTrabajador {
     public void addTrabajador(Trabajador t){
         //Conexion
         Connection conexion = new DBConection().getConexion();   
-        
         try {
-            
             //Se crea una sentencia
             String sql = "INSERT INTO trabajadores VALUES(?,?,?,?,?,?)";
             
@@ -51,8 +49,7 @@ public class DaoTrabajador {
             conexion.close();
             
         } catch (Exception e) {
-            System.out.println("Se ha producido un error al añadir el trabajador");
-            e.printStackTrace();
+            
         }
     }
     
@@ -109,6 +106,7 @@ public class DaoTrabajador {
             
             
         } catch (Exception e) {
+            
             System.out.println("Se ha producido un error al actualizar el trabajador");
             e.printStackTrace();
         }

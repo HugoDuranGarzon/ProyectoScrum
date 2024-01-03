@@ -105,6 +105,10 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         txtFiltrarMes = new javax.swing.JTextField();
         txtFiltrarAnio = new javax.swing.JTextField();
         grupoBtnOrdenacion = new javax.swing.ButtonGroup();
+        dialogoErrorNuevoTrabajador = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        btnAceptarErrorNuevo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -140,6 +144,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         });
 
         btnNuevoCancelar.setText("Cancelar");
+        btnNuevoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoCancelarActionPerformed(evt);
+            }
+        });
 
         txtNuevoAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -503,6 +512,38 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
+        dialogoErrorNuevoTrabajador.setPreferredSize(new java.awt.Dimension(400, 150));
+
+        jLabel25.setText("No pueden haber campos vacios o con formato erroneos");
+
+        btnAceptarErrorNuevo.setText("ACEPTAR");
+        btnAceptarErrorNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarErrorNuevoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogoErrorNuevoTrabajadorLayout = new javax.swing.GroupLayout(dialogoErrorNuevoTrabajador.getContentPane());
+        dialogoErrorNuevoTrabajador.getContentPane().setLayout(dialogoErrorNuevoTrabajadorLayout);
+        dialogoErrorNuevoTrabajadorLayout.setHorizontalGroup(
+            dialogoErrorNuevoTrabajadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAceptarErrorNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(dialogoErrorNuevoTrabajadorLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel25)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        dialogoErrorNuevoTrabajadorLayout.setVerticalGroup(
+            dialogoErrorNuevoTrabajadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoErrorNuevoTrabajadorLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAceptarErrorNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jButton1.setText("jButton1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -678,17 +719,20 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
     private void btnNuevoAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAceptarActionPerformed
 
-      
+      try{
       String dni = txtNuevoDni.getText();
       String nombre = txtNuevoNombre.getText();
       String apellidos =  txtNuevoApellidos.getText();
       String matricula = txtNuevoMatricula.getText();
       String fecha = (txtNuevoAnio.getText())+("-")+(txtNuevoMes.getText())+("-")+(txtNuevoDia.getText());   
-      Double sueldo = Double.parseDouble(txtNuevoSueldo.getText());            
+      Double sueldo = Double.parseDouble(txtNuevoSueldo.getText());
       Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo,fecha,matricula);
       d.addTrabajador(t);       
       dialogoBtnNuevo.dispose();
       listar();
+        } catch (Exception e) {
+        mostrarErrorAdd();  
+        }
     }//GEN-LAST:event_btnNuevoAceptarActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
@@ -710,11 +754,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFiltrarAceptarActionPerformed
 
     private void btnModCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCancelarActionPerformed
-    dialogoBtnModificar.dispose();
+     dialogoBtnModificar.dispose();
     }//GEN-LAST:event_btnModCancelarActionPerformed
 
     private void btnNuevoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoCancelarActionPerformed
-    dialogoBtnNuevo.dispose();
+      dialogoBtnNuevo.dispose();
     }//GEN-LAST:event_btnNuevoCancelarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -760,6 +804,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNuevoAnioActionPerformed
 
+    private void btnAceptarErrorNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarErrorNuevoActionPerformed
+        // TODO add your handling code here:
+        dialogoErrorNuevoTrabajador.dispose();
+    }//GEN-LAST:event_btnAceptarErrorNuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -793,6 +842,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 new FrmTrabajadores().setVisible(true);
             }
         });
+    }
+    
+    //Metodo para mostra el mensaje de error al añadir un nuevo trabajador
+    //Se usa en el catch de metodo AddTrabajador
+    public void mostrarErrorAdd(){
+        dialogoErrorNuevoTrabajador.setSize(400,200);
+        dialogoErrorNuevoTrabajador.setModal(true);
+        dialogoErrorNuevoTrabajador.setVisible(true);
     }
     
     //Metodo para recoger todos los registros existentes y listarlos en la tabla
@@ -838,6 +895,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptarErrorNuevo;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFiltrar;
@@ -856,7 +914,9 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JDialog dialogoBtnFiltrar;
     private javax.swing.JDialog dialogoBtnModificar;
     private javax.swing.JDialog dialogoBtnNuevo;
+    private javax.swing.JDialog dialogoErrorNuevoTrabajador;
     private javax.swing.ButtonGroup grupoBtnOrdenacion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -873,6 +933,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
