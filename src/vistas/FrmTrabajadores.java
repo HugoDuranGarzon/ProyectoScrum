@@ -109,6 +109,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         btnAceptarErrorNuevo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        dialogoErrorModificar = new javax.swing.JDialog();
+        btnAceptarErrorModificar = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        dialogoErrorEliminar = new javax.swing.JDialog();
+        btnAceptarErrorEliminar = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -544,6 +550,62 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
 
+        btnAceptarErrorModificar.setText("ACEPTAR");
+        btnAceptarErrorModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarErrorModificarActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Seleccione el trabajador que desea modificar antes de clickar modificar");
+
+        javax.swing.GroupLayout dialogoErrorModificarLayout = new javax.swing.GroupLayout(dialogoErrorModificar.getContentPane());
+        dialogoErrorModificar.getContentPane().setLayout(dialogoErrorModificarLayout);
+        dialogoErrorModificarLayout.setHorizontalGroup(
+            dialogoErrorModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAceptarErrorModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addGroup(dialogoErrorModificarLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel26)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogoErrorModificarLayout.setVerticalGroup(
+            dialogoErrorModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoErrorModificarLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAceptarErrorModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnAceptarErrorEliminar.setText("ACEPTAR");
+        btnAceptarErrorEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarErrorEliminarActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Seleccione el trabajador que desea eliminar antes de clickar eliminar");
+
+        javax.swing.GroupLayout dialogoErrorEliminarLayout = new javax.swing.GroupLayout(dialogoErrorEliminar.getContentPane());
+        dialogoErrorEliminar.getContentPane().setLayout(dialogoErrorEliminarLayout);
+        dialogoErrorEliminarLayout.setHorizontalGroup(
+            dialogoErrorEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAceptarErrorEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(dialogoErrorEliminarLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel27)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogoErrorEliminarLayout.setVerticalGroup(
+            dialogoErrorEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoErrorEliminarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAceptarErrorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -704,10 +766,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Cogemos de la fila seleccionada su columna 0 que contiene el dni , para pasarselo a metodo y asi poder borrar el trabajador seleccionado
         int filaSeleccionada = tabla.getSelectedRow();
+                if(filaSeleccionada == -1){
+                    mostrarErrorDelete();
+                }else{
         Object dni = tabla.getValueAt(filaSeleccionada,0);
         d.borrarTrabajador(dni);
         // listamos para actualizar la tabla 
          listar();
+         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -763,13 +829,16 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         int filaSeleccionada = tabla.getSelectedRow();
+        if(filaSeleccionada == -1){
+        mostrarErrorMod();
+        }else{
         Object dni = tabla.getValueAt(filaSeleccionada,0);
         String S_dni = dni.toString();
         txtModDni.setText(S_dni);
         dialogoBtnModificar.setSize(300,400);
         dialogoBtnModificar.setModal(true);
         dialogoBtnModificar.setVisible(true);
-        
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtFiltrarSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltrarSueldoActionPerformed
@@ -809,6 +878,17 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         dialogoErrorNuevoTrabajador.dispose();
     }//GEN-LAST:event_btnAceptarErrorNuevoActionPerformed
 
+    private void btnAceptarErrorModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarErrorModificarActionPerformed
+        // TODO add your handling code here:
+        dialogoErrorModificar.dispose();
+    }//GEN-LAST:event_btnAceptarErrorModificarActionPerformed
+
+    private void btnAceptarErrorEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarErrorEliminarActionPerformed
+        // TODO add your handling code here:
+     dialogoErrorEliminar.dispose();
+     
+    }//GEN-LAST:event_btnAceptarErrorEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -845,13 +925,22 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }
     
     //Metodo para mostra el mensaje de error al añadir un nuevo trabajador
-    //Se usa en el catch de metodo AddTrabajador
     public void mostrarErrorAdd(){
         dialogoErrorNuevoTrabajador.setSize(400,200);
         dialogoErrorNuevoTrabajador.setModal(true);
         dialogoErrorNuevoTrabajador.setVisible(true);
     }
-    
+    //Metodo para mostra el mensaje de error al modificar un nuevo trabajador
+    public void mostrarErrorMod(){
+        dialogoErrorModificar.setSize(480,200);
+        dialogoErrorModificar.setModal(true);
+        dialogoErrorModificar.setVisible(true);
+    }    
+        public void mostrarErrorDelete(){
+        dialogoErrorEliminar.setSize(480,200);
+        dialogoErrorEliminar.setModal(true);
+        dialogoErrorEliminar.setVisible(true);
+    }    
     //Metodo para recoger todos los registros existentes y listarlos en la tabla
     //Se llama a este metodo con el boton Actualizar y en el constructor
     public void listar(){
@@ -895,6 +984,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptarErrorEliminar;
+    private javax.swing.JButton btnAceptarErrorModificar;
     private javax.swing.JButton btnAceptarErrorNuevo;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
@@ -914,6 +1005,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JDialog dialogoBtnFiltrar;
     private javax.swing.JDialog dialogoBtnModificar;
     private javax.swing.JDialog dialogoBtnNuevo;
+    private javax.swing.JDialog dialogoErrorEliminar;
+    private javax.swing.JDialog dialogoErrorModificar;
     private javax.swing.JDialog dialogoErrorNuevoTrabajador;
     private javax.swing.ButtonGroup grupoBtnOrdenacion;
     private javax.swing.JButton jButton1;
@@ -934,6 +1027,8 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
