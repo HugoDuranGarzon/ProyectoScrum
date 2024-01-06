@@ -161,13 +161,19 @@ public class DaoTrabajador {
 		return lista;
                 //devuelve lista
 	}
-    	public ArrayList<Trabajador> filtrar(Trabajador t){
+    	public ArrayList<Trabajador> filtrar(Trabajador t, String comparador_sueldo, String comparador_fecha){
 		//Preparo un arraylist para el resultado
+                                    
 		ArrayList<Trabajador> filtrado = new ArrayList<Trabajador>();
 		//pedir la conexión
+                
 		Connection conexion = new DBConection().getConexion();
                                     int ncond=0;
-                                    String sueldo = String.valueOf(t.sueldo);
+                                    String sueldo = "";
+                                    if (t.sueldo != 0.0) {
+                                    sueldo = String.valueOf(t.sueldo);
+                                    }
+                                    
                                     try {
                                     //Lanzar un SELECT
                                     String sql = "SELECT * FROM trabajadores";
@@ -191,23 +197,114 @@ public class DaoTrabajador {
                                      sql+= " and apellidos like '%"+t.apellidos+"%' " ;
                                         }        
                                     }
-                                    /*
                                     if( !sueldo.equals( "")){
                                     ncond++;
                                     if (ncond==1){
-                                    sql+=" where sueldo = like '%"+sueldo+"%' ";
-                                    } else {
-                                     sql+= " and sueldo like '%"+sueldo+"%' " ;
-                                        }        
+                                            switch (comparador_sueldo) {
+                                        case "<":
+                                            sql+=" where sueldo < '"+t.sueldo+"'";
+                                            break;
+                                        case ">":
+                                            sql+=" where sueldo > '"+t.sueldo+"'";
+                                            break;
+                                        case "=":
+                                            sql+=" where sueldo = '"+t.sueldo+"'";
+                                            break;
+                                        case "<=":
+                                            sql+=" where sueldo <= '"+t.sueldo+"'";
+                                            break;
+                                        case ">=":
+                                            sql+=" where sueldo >= '"+t.sueldo+"'";
+                                            break;
+                                        case "<>":
+                                            sql+=" where sueldo <> '"+t.sueldo+"'";
+                                            break;
+                                        default:
+                                            System.out.println("Operador no reconocido");
+                                    }    
+                                    }else{
+                                            switch (comparador_sueldo) {
+                                        case "<":
+                                            sql+=" and sueldo < '"+t.sueldo+"'";
+                                            break;
+                                        case ">":
+                                            sql+=" and sueldo > '"+t.sueldo+"'";
+                                            break;
+                                        case "=":
+                                            sql+=" and sueldo = '"+t.sueldo+"'";
+                                            break;
+                                        case "<=":
+                                            sql+=" and sueldo <= '"+t.sueldo+"'";
+                                            break;
+                                        case ">=":
+                                            sql+=" and sueldo >= '"+t.sueldo+"'";
+                                            break;
+                                        case "<>":
+                                            sql+=" and sueldo <> '"+t.sueldo+"'";
+                                            break;
+                                        default:
+                                            System.out.println("Operador no reconocido");
                                     }
-                                    */
+                                    
+                                    }
+                                    }
                                     if( !t.matricula.equals( "")){
                                     ncond++;
                                     if (ncond==1){
                                     sql+=" where matricula like '%"+t.matricula+"%' ";
                                     } else {
                                      sql+= " and matricula like '%"+t.matricula+"%' " ;
-                                        }        
+                                        }
+                                    }
+                                    if( !t.fecha.equals( "")){
+                                    ncond++;
+                                    if (ncond==1){
+                                            switch (comparador_fecha) {
+                                        case "<":
+                                            sql+=" where fecha < '"+t.fecha+"'";
+                                            break;
+                                        case ">":
+                                            sql+=" where fecha > '"+t.fecha+"'";
+                                            break;
+                                        case "=":
+                                            sql+=" where fecha = '"+t.fecha+"'";
+                                            break;
+                                        case "<=":
+                                            sql+=" where fecha <= '"+t.fecha+"'";
+                                            break;
+                                        case ">=":
+                                            sql+=" where fecha >= '"+t.fecha+"'";
+                                            break;
+                                        case "<>":
+                                            sql+=" where fecha <> '"+t.fecha+"'";
+                                            break;
+                                        default:
+                                            System.out.println("Operador no reconocido");
+                                    }    
+                                    }else{
+                                            switch (comparador_fecha) {
+                                        case "<":
+                                            sql+=" and fecha < '"+t.fecha+"'";
+                                            break;
+                                        case ">":
+                                            sql+=" and fecha > '"+t.fecha+"'";
+                                            break;
+                                        case "=":
+                                            sql+=" and fecha = '"+t.fecha+"'";
+                                            break;
+                                        case "<=":
+                                            sql+=" and fecha <= '"+t.fecha+"'";
+                                            break;
+                                        case ">=":
+                                            sql+=" and fecha >= '"+t.fecha+"'";
+                                            break;
+                                        case "<>":
+                                            sql+=" and fecha <> '"+t.fecha+"'";
+                                            break;
+                                        default:
+                                            System.out.println("Operador no reconocido");
+                                    }
+                                    }
                                     }
                                         System.out.println(sql);
 			//Uso una plataforma "Preparada"

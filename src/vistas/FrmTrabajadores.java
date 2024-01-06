@@ -856,15 +856,25 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     String dni = txtFiltrarDni.getText();
     String nombre = txtFiltrarNombre.getText();
     String apellidos = txtFiltrarApellidos.getText();
-    Double sueldo = 1.1;            
+    String comparador_sueldo = (String) comboSueldo.getSelectedItem();
+    String textoSueldo = txtFiltrarSueldo.getText();
+    Double sueldo=0.0;
+    if(!textoSueldo.isEmpty()){
+    sueldo = Double.parseDouble(textoSueldo);
+    }
     String matricula = txtFiltrarMatricula.getText();
-    String fecha="";
+    String anio =txtFiltrarAnio.getText();
+    String mes = txtFiltrarMes.getText();
+    String dia = txtFiltrarDia.getText();
+    String comparador_fecha = (String) comboFecha.getSelectedItem();
+    String fecha=anio+"-"+mes+"-"+dia;
+        System.out.println("la fecha es;"+fecha);
+    
     
     Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo, fecha,matricula);
     
-    listar_filtrado(t);
+    listar_filtrado(t,comparador_sueldo, comparador_fecha);
     dialogoBtnFiltrar.dispose();
-    String cbosueldo, cbofecha;
     String sql;
     
 
@@ -1039,7 +1049,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         }
         
     }
-    public void listar_filtrado(Trabajador t){
+    public void listar_filtrado(Trabajador t, String comparador_sueldo,String comparador_fecha){
         
         DefaultTableModel modelo_filtrado = new DefaultTableModel();
         modelo_filtrado.addColumn("DNI");
@@ -1048,7 +1058,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         modelo_filtrado.addColumn("Sueldo");
         modelo_filtrado.addColumn("Fecha");
         modelo_filtrado.addColumn("Matricula");
-        ArrayList<Trabajador> filtrado= d.filtrar(t);
+        ArrayList<Trabajador> filtrado= d.filtrar(t, comparador_sueldo, comparador_fecha);
         for(Trabajador trabajador: filtrado){
             ArrayList fila_filtrado = new ArrayList();
             fila_filtrado.add (trabajador.getDni());
