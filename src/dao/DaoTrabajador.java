@@ -161,7 +161,73 @@ public class DaoTrabajador {
 		return lista;
                 //devuelve lista
 	}
-        
+    	public ArrayList<Trabajador> filtrar(Trabajador t){
+		//Preparo un arraylist para el resultado
+		ArrayList<Trabajador> filtrado = new ArrayList<Trabajador>();
+		//pedir la conexión
+		Connection conexion = new DBConection().getConexion();
+                                    int ncond=0;
+                                    String sueldo = String.valueOf(t.sueldo);
+                                    try {
+                                    //Lanzar un SELECT
+                                    String sql = "SELECT * FROM trabajadores";
+                                    if( !t.dni.equals("")) {
+                                    ncond++;
+                                    sql+=" where dni like '%"+t.dni+"%'";
+                                    }
+                                    if( !t.nombre.equals( "")){
+                                    ncond++;
+                                    if (ncond==1){
+                                    sql+=" where nombre like '%"+t.nombre+"%'";
+                                    } else {
+                                     sql+= " and nombre like '%"+t.nombre+"%'" ;
+                                    }
+                                    }
+                                    if( !t.apellidos.equals( "")){
+                                    ncond++;
+                                    if (ncond==1){
+                                    sql+=" where apellidos like '%"+t.apellidos+"%' ";
+                                    } else {
+                                     sql+= " and apellidos like '%"+t.apellidos+"%' " ;
+                                        }        
+                                    }
+                                    /*
+                                    if( !sueldo.equals( "")){
+                                    ncond++;
+                                    if (ncond==1){
+                                    sql+=" where sueldo = like '%"+sueldo+"%' ";
+                                    } else {
+                                     sql+= " and sueldo like '%"+sueldo+"%' " ;
+                                        }        
+                                    }
+                                    */
+                                    if( !t.matricula.equals( "")){
+                                    ncond++;
+                                    if (ncond==1){
+                                    sql+=" where matricula like '%"+t.matricula+"%' ";
+                                    } else {
+                                     sql+= " and matricula like '%"+t.matricula+"%' " ;
+                                        }        
+                                    }
+                                        System.out.println(sql);
+			//Uso una plataforma "Preparada"
+			PreparedStatement plataforma = conexion.prepareStatement(sql);
+			ResultSet resultado_filtrar = plataforma.executeQuery();
+
+			while(resultado_filtrar.next()) { //cuando se acaben las tuplas, next() retorna false
+				//tratamiento de cada tupla
+				filtrado.add(new Trabajador(resultado_filtrar.getString("dni"), resultado_filtrar.getString("nombre"),resultado_filtrar.getString("apellidos"), resultado_filtrar.getDouble("sueldo"),resultado_filtrar.getString("fecha"),resultado_filtrar.getString("matricula")));
+				//	lista.add(new Persona(resultado.getString(1), resultado.getString(2), resultado.getLong(3)));
+
+			}
+			conexion.close();
+		} catch (SQLException e) {
+			System.out.println("Error obteniendo personas");
+			e.printStackTrace();
+		}
+		return filtrado;
+                //devuelve lista
+	}        
         public String SueldoMedio() throws SQLException{
             String columna="sueldo";
                 // Realizar la conexión y calcular la media
@@ -194,6 +260,6 @@ public class DaoTrabajador {
                     return fmedia;
             }
         }
-
+        
 }
  

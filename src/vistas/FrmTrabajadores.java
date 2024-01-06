@@ -115,6 +115,9 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         dialogoErrorEliminar = new javax.swing.JDialog();
         btnAceptarErrorEliminar = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
+        dialogoTablaResultados = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaResultadoFiltro = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -421,6 +424,11 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         );
 
         btnFiltrarVerTodos.setText("Ver Todos");
+        btnFiltrarVerTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarVerTodosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dialogoBtnFiltrarLayout = new javax.swing.GroupLayout(dialogoBtnFiltrar.getContentPane());
         dialogoBtnFiltrar.getContentPane().setLayout(dialogoBtnFiltrarLayout);
@@ -461,15 +469,15 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                         .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(dialogoBtnFiltrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtFiltrarSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(dialogoBtnFiltrarLayout.createSequentialGroup()
                                         .addComponent(txtFiltrarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtFiltrarMes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtFiltrarAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(txtFiltrarAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoBtnFiltrarLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(txtFiltrarMatricula)))))
@@ -517,8 +525,6 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                     .addComponent(btnFiltrarVerTodos))
                 .addGap(10, 10, 10))
         );
-
-        dialogoErrorNuevoTrabajador.setPreferredSize(new java.awt.Dimension(400, 150));
 
         jLabel25.setText("No pueden haber campos vacios o con formato erroneos");
 
@@ -604,6 +610,37 @@ public class FrmTrabajadores extends javax.swing.JFrame {
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAceptarErrorEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        tablaResultadoFiltro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaResultadoFiltro.setName(""); // NOI18N
+        jScrollPane2.setViewportView(tablaResultadoFiltro);
+
+        javax.swing.GroupLayout dialogoTablaResultadosLayout = new javax.swing.GroupLayout(dialogoTablaResultados.getContentPane());
+        dialogoTablaResultados.getContentPane().setLayout(dialogoTablaResultadosLayout);
+        dialogoTablaResultadosLayout.setHorizontalGroup(
+            dialogoTablaResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoTablaResultadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogoTablaResultadosLayout.setVerticalGroup(
+            dialogoTablaResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoTablaResultadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -816,7 +853,21 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModAceptarActionPerformed
 
     private void btnFiltrarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarAceptarActionPerformed
-        
+    String dni = txtFiltrarDni.getText();
+    String nombre = txtFiltrarNombre.getText();
+    String apellidos = txtFiltrarApellidos.getText();
+    Double sueldo = 1.1;            
+    String matricula = txtFiltrarMatricula.getText();
+    String fecha="";
+    
+    Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo, fecha,matricula);
+    
+    listar_filtrado(t);
+    dialogoBtnFiltrar.dispose();
+    String cbosueldo, cbofecha;
+    String sql;
+    
+
     }//GEN-LAST:event_btnFiltrarAceptarActionPerformed
 
     private void btnModCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCancelarActionPerformed
@@ -888,6 +939,12 @@ public class FrmTrabajadores extends javax.swing.JFrame {
      dialogoErrorEliminar.dispose();
      
     }//GEN-LAST:event_btnAceptarErrorEliminarActionPerformed
+
+    private void btnFiltrarVerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarVerTodosActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnFiltrarVerTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -982,7 +1039,30 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         }
         
     }
-
+    public void listar_filtrado(Trabajador t){
+        
+        DefaultTableModel modelo_filtrado = new DefaultTableModel();
+        modelo_filtrado.addColumn("DNI");
+        modelo_filtrado.addColumn("Nombre");
+        modelo_filtrado.addColumn("Apellidos");
+        modelo_filtrado.addColumn("Sueldo");
+        modelo_filtrado.addColumn("Fecha");
+        modelo_filtrado.addColumn("Matricula");
+        ArrayList<Trabajador> filtrado= d.filtrar(t);
+        for(Trabajador trabajador: filtrado){
+            ArrayList fila_filtrado = new ArrayList();
+            fila_filtrado.add (trabajador.getDni());
+            fila_filtrado.add (trabajador.getNombre());
+            fila_filtrado.add (trabajador.getApellidos());
+            fila_filtrado.add (trabajador.getSueldo());
+            fila_filtrado.add (trabajador.getFecha());
+            fila_filtrado.add (trabajador.getMatricula());
+            
+            modelo_filtrado.addRow(fila_filtrado.toArray());
+        }
+        tabla.setModel(modelo_filtrado);
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarErrorEliminar;
     private javax.swing.JButton btnAceptarErrorModificar;
@@ -1008,6 +1088,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JDialog dialogoErrorEliminar;
     private javax.swing.JDialog dialogoErrorModificar;
     private javax.swing.JDialog dialogoErrorNuevoTrabajador;
+    private javax.swing.JDialog dialogoTablaResultados;
     private javax.swing.ButtonGroup grupoBtnOrdenacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -1038,12 +1119,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField media;
     private javax.swing.JTextField ntrab;
     private javax.swing.JPanel panelOrdenacion;
     private javax.swing.JRadioButton radioAsc;
     private javax.swing.JRadioButton radioDesc;
     private javax.swing.JTable tabla;
+    private javax.swing.JTable tablaResultadoFiltro;
     private javax.swing.JTextField txtFiltrarAnio;
     private javax.swing.JTextField txtFiltrarApellidos;
     private javax.swing.JTextField txtFiltrarDia;
