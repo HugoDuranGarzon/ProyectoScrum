@@ -13,6 +13,7 @@ import entidades.Trabajador;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -393,9 +394,19 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
         grupoBtnOrdenacion.add(radioAsc);
         radioAsc.setText("ASC");
+        radioAsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioAscActionPerformed(evt);
+            }
+        });
 
         grupoBtnOrdenacion.add(radioDesc);
         radioDesc.setText("DESC");
+        radioDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioDescActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOrdenacionLayout = new javax.swing.GroupLayout(panelOrdenacion);
         panelOrdenacion.setLayout(panelOrdenacionLayout);
@@ -867,13 +878,25 @@ public class FrmTrabajadores extends javax.swing.JFrame {
     String mes = txtFiltrarMes.getText();
     String dia = txtFiltrarDia.getText();
     String comparador_fecha = (String) comboFecha.getSelectedItem();
-    String fecha=anio+"-"+mes+"-"+dia;
-        System.out.println("la fecha es;"+fecha);
-    
+    String fecha="";
+    if(!anio.isEmpty()||!mes.isEmpty()||!dia.isEmpty()){
+    fecha=anio+"-"+mes+"-"+dia;
+    }
+    System.out.println("la fecha es;"+fecha);
+    String valorOrdenacion = (String) cboCamposOrdenacion.getSelectedItem();
+    String orden = "";
+    boolean ascendente = radioAsc.isSelected();
+    boolean descendente = radioDesc.isSelected();
+    if(ascendente){
+    orden = "asc";
+    }
+    if(descendente){
+    orden = "desc";
+    }
     
     Trabajador t = new Trabajador(dni,nombre,apellidos,sueldo, fecha,matricula);
     
-    listar_filtrado(t,comparador_sueldo, comparador_fecha);
+    listar_filtrado(t,comparador_sueldo, comparador_fecha, orden, valorOrdenacion);
     dialogoBtnFiltrar.dispose();
     String sql;
     
@@ -955,6 +978,14 @@ public class FrmTrabajadores extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnFiltrarVerTodosActionPerformed
+
+    private void radioAscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioAscActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioAscActionPerformed
+
+    private void radioDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioDescActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioDescActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1049,7 +1080,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         }
         
     }
-    public void listar_filtrado(Trabajador t, String comparador_sueldo,String comparador_fecha){
+    public void listar_filtrado(Trabajador t, String comparador_sueldo,String comparador_fecha, String orden,String valorOrdenacion){
         
         DefaultTableModel modelo_filtrado = new DefaultTableModel();
         modelo_filtrado.addColumn("DNI");
@@ -1058,7 +1089,7 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         modelo_filtrado.addColumn("Sueldo");
         modelo_filtrado.addColumn("Fecha");
         modelo_filtrado.addColumn("Matricula");
-        ArrayList<Trabajador> filtrado= d.filtrar(t, comparador_sueldo, comparador_fecha);
+        ArrayList<Trabajador> filtrado= d.filtrar(t, comparador_sueldo, comparador_fecha, orden, valorOrdenacion);
         for(Trabajador trabajador: filtrado){
             ArrayList fila_filtrado = new ArrayList();
             fila_filtrado.add (trabajador.getDni());

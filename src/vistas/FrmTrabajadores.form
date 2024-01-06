@@ -639,6 +639,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="ASC"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioAscActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioDesc">
               <Properties>
@@ -647,6 +650,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="DESC"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioDescActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

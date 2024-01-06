@@ -161,7 +161,7 @@ public class DaoTrabajador {
 		return lista;
                 //devuelve lista
 	}
-    	public ArrayList<Trabajador> filtrar(Trabajador t, String comparador_sueldo, String comparador_fecha){
+    	public ArrayList<Trabajador> filtrar(Trabajador t, String comparador_sueldo, String comparador_fecha, String orden, String valorOrdenacion){
 		//Preparo un arraylist para el resultado
                                     
 		ArrayList<Trabajador> filtrado = new ArrayList<Trabajador>();
@@ -304,6 +304,34 @@ public class DaoTrabajador {
                                         default:
                                             System.out.println("Operador no reconocido");
                                     }
+                                    }
+                                    }
+                                    if( valorOrdenacion == "(Sin ordenacion)" || orden == ""){
+                                    }else{
+                                    ncond++; 
+                                         if (ncond>=1){
+                                            switch (valorOrdenacion) {
+                                        case "DNI":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        case "Nombre":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        case "Apellidos":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        case "Sueldo":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        case "Fecha":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        case "Matricula":
+                                            sql+=" ORDER BY "+valorOrdenacion+" "+orden;
+                                            break;
+                                        default:
+                                            System.out.println("Operador no reconocido");
+                                    }    
                                     }
                                     }
                                         System.out.println(sql);
