@@ -917,8 +917,31 @@ public class FrmTrabajadores extends javax.swing.JFrame {
         mostrarErrorMod();
         }else{
         Object dni = tabla.getValueAt(filaSeleccionada,0);
+        Object nombre = tabla.getValueAt(filaSeleccionada,1);    
+        Object apellidos = tabla.getValueAt(filaSeleccionada,2);    
+        Object sueldo = tabla.getValueAt(filaSeleccionada,3);    
+        Object fecha = tabla.getValueAt(filaSeleccionada,4);    
+        Object matricula = tabla.getValueAt(filaSeleccionada,5);          
         String S_dni = dni.toString();
         txtModDni.setText(S_dni);
+        String S_nombre = nombre.toString();
+        txtModNombre.setText(S_nombre);
+        String S_apellidos = apellidos.toString();
+        txtModApellidos.setText(S_apellidos);
+        String S_sueldo = sueldo.toString();
+        txtModSueldo.setText(S_sueldo);  
+        String S_fecha = fecha.toString();
+        String[] partes = S_fecha.split("-");
+
+        // Asignar las partes a las variables correspondientes
+        String dia = partes[2];
+        String mes = partes[1];
+        String año = partes[0];
+        txtModDia.setText(dia);
+        txtModMes.setText(mes);
+        txtModAnio.setText(año);        
+        String S_matricula = matricula.toString();
+        txtModMatricula.setText(S_matricula);                
         dialogoBtnModificar.setSize(300,400);
         dialogoBtnModificar.setModal(true);
         dialogoBtnModificar.setVisible(true);
