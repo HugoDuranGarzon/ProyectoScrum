@@ -195,7 +195,7 @@ public class DaoTrabajador {
                                     sql+=" where apellidos like '%"+t.apellidos+"%' ";
                                     } else {
                                      sql+= " and apellidos like '%"+t.apellidos+"%' " ;
-                                        }        
+                                        }
                                     }
                                     if( !sueldo.equals( "")){
                                     ncond++;
@@ -221,7 +221,7 @@ public class DaoTrabajador {
                                             break;
                                         default:
                                             System.out.println("Operador no reconocido");
-                                    }    
+                                    }
                                     }else{
                                             switch (comparador_sueldo) {
                                         case "<":
@@ -244,7 +244,7 @@ public class DaoTrabajador {
                                             break;
                                         default:
                                             System.out.println("Operador no reconocido");
-                                    }
+                                        }
                                     
                                     }
                                     }
@@ -303,7 +303,7 @@ public class DaoTrabajador {
                                             break;
                                         default:
                                             System.out.println("Operador no reconocido");
-                                    }
+                                        }
                                     }
                                     }
                                     if( valorOrdenacion == "(Sin ordenacion)" || orden == ""){
@@ -342,7 +342,7 @@ public class DaoTrabajador {
 			while(resultado_filtrar.next()) { //cuando se acaben las tuplas, next() retorna false
 				//tratamiento de cada tupla
 				filtrado.add(new Trabajador(resultado_filtrar.getString("dni"), resultado_filtrar.getString("nombre"),resultado_filtrar.getString("apellidos"), resultado_filtrar.getDouble("sueldo"),resultado_filtrar.getString("fecha"),resultado_filtrar.getString("matricula")));
-				//	lista.add(new Persona(resultado.getString(1), resultado.getString(2), resultado.getLong(3)));
+				//lista.add(new Persona(resultado.getString(1), resultado.getString(2), resultado.getLong(3)));
 
 			}
 			conexion.close();
@@ -377,7 +377,6 @@ public class DaoTrabajador {
                 } catch (SQLException ex) {
                     Logger.getLogger(DaoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
 
                     double media = suma / cantidadValores;
                     DecimalFormat formatoDecimal = new DecimalFormat("#.##");

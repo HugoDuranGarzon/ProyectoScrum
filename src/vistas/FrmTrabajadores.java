@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import conexion.DBConection;
 import dao.DaoTrabajador;
 import entidades.Trabajador;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1124,9 +1125,30 @@ public class FrmTrabajadores extends javax.swing.JFrame {
             
             modelo_filtrado.addRow(fila_filtrado.toArray());
         }
-        tabla.setModel(modelo_filtrado);
+        Double sueldoMedioFiltrado;
+        int nRegistrosFiltrado = modelo_filtrado.getRowCount();
+        double suma = 0.0;
+
         
+            for (int i = 0; i < nRegistrosFiltrado; i++) {
+            Object valor = modelo_filtrado.getValueAt(i, 3);
+            if (valor instanceof Double) {
+             suma += (Double) valor;
+            }
+            }
+
+        if (nRegistrosFiltrado > 0) {
+            sueldoMedioFiltrado = suma / nRegistrosFiltrado;
+        } else {
+            sueldoMedioFiltrado = 0.0; 
+        }
+        DecimalFormat f = new DecimalFormat("#.##");
+        String fsueldoMedioFiltrado = f.format(sueldoMedioFiltrado);
+        ntrab.setText(""+nRegistrosFiltrado);
+        media.setText(""+fsueldoMedioFiltrado);
+        tabla.setModel(modelo_filtrado);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarErrorEliminar;
     private javax.swing.JButton btnAceptarErrorModificar;
