@@ -19,7 +19,7 @@ public class CrudTrabajadores {
      */
     public static void main(String[] args) {
                 Connection conexion = new DBConection().getConexion();
-                FrmTrabajadores vista =new FrmTrabajadores();
+                FrmTrabajadores vista = new FrmTrabajadores();
                 vista.setVisible(true);                
      
     }

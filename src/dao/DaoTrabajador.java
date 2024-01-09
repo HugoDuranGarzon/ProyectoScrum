@@ -49,7 +49,7 @@ public class DaoTrabajador {
             conexion.close();
             
         } catch (Exception e) {
-            
+            System.out.println("Error al añadir al trabajador.");
         }
     }
     
